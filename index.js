@@ -29,6 +29,11 @@ app.use(express.static("./public"));
 // routes
 app.use(require("./src/routes/routes"));
 //server
-app.listen(port || process.env.HOST, (req, res)=>{
+app.listen(process.env.HOST || port, (req, res)=>{
+    if(process.env.HOST){
+        console.log(`servidor iniciado en el puerto ${process.env.HOST}`);
+    }else{
+
     console.log(`servidor iniciado en el puerto ${port}`);
+    }
 })
