@@ -8,7 +8,7 @@ require("dotenv").config();
 
 
 //setting
-let port = process.env.SPORT;
+let port = process.env.PORTHOST;
 app.set("view engine", "ejs");
 
 //middlewares
