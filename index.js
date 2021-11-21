@@ -29,6 +29,6 @@ app.use(express.static("./public"));
 // routes
 app.use(require("./src/routes/routes"));
 //server
-app.listen(port, (req, res)=>{
+app.listen(port || process.env.HOST, (req, res)=>{
     console.log(`servidor iniciado en el puerto ${port}`);
 })
