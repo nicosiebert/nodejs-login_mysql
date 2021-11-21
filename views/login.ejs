@@ -1,0 +1,36 @@
+<%if (req.session.usuario){
+    %>
+    <script> location.href="../"</script>
+    <%
+}else{ %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= process.env.APPN %> -Login </title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body class="body">
+    <header class="header">
+        <h2 class="logo"> <%= process.env.APPN %> </h2>
+    </header>
+    <form>
+        <h3>Login</h3>
+        <h2 id="response"></h2>
+        <br>
+
+        <label for="email">Email:</label> <br>
+        <input type="email" name="email" id="email"> <br>
+
+        <label for="passw">Password:</label> <br>
+        <input type="password" name="passw" id="passw"> <br>
+
+        <input type="submit" value="Login" id="btnReq"> <p>or <a href="../register">register</a></p><br>
+        <a href="../">Index</a>
+    </form>
+<script src="/js/request.js"></script>
+</body>
+</html>
+<% } %>

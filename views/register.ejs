@@ -1,0 +1,39 @@
+<% 
+if(req.session.user){
+    res.redirect("/");
+} else{
+%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/app.css">
+    <title>Document</title>
+</head>
+<body class="body">
+    <header class="header">
+        <h2 class="logo"> <%= process.env.APPN %> </h2>
+    </header>
+    <form>
+        <h3>register</h3>
+        <h4 id="response"></h4>
+        <label for="email">Email</label> <br>
+        <input type="email" name="" id="email"> <br>
+
+        <label for="passw">password</label> <br>
+        <input type="password" id="passw"> <br>
+
+        <label for="passw2">Repeat Password</label> <br>
+        <input type="password" name="" id="passw2"> <br>
+
+        <input type="submit" value="register" id="btnReq"> <p>or <a href="../login">login</a></p><br>
+        <a href="../"> Back to Index</a>
+    </form>
+    <script src="/js/register.js"></script>
+</body>
+</html>
+<%
+}
+%>
