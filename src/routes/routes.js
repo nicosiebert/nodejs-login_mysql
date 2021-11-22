@@ -12,9 +12,15 @@ router.get("/login", (req, res)=>{
     res.render("login.ejs", {req:req});
 })
 router.post("/login", async (req, res)=>{
+    
     let {email, passw}  = req.body;
-    data = {email:email, passw:passw}
-    api.login(email, passw, req, res);
+    if(passw === ""){
+        res.send({err:"!passw"})
+    }else{
+        let data = {email:email, passw:passw}
+        api.login(email, passw, req, res);
+    }
+    
 })
 
 

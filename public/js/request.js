@@ -21,6 +21,9 @@ btnReq.onclick =  e =>{
         if(data.err ==="!user"){
             $("#response").textContent ="Ha ocurrido un error, usuario o contraseña incorrecto";
         }
+        if(data.err ==="!passw"){
+            $("#response").textContent ="¡Ingrese contraseña!";
+        }
     })
     .catch(err=>console.log(err));
 }
