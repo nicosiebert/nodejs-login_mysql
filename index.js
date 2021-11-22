@@ -27,6 +27,6 @@ app.use(express.static("./public"));
 // routes
 app.use(require("./src/routes/routes.js"));
 //server
-app.listen(app.get("port"), e=>{
+app.listen(app.get("port"), ()=>{
     console.log(`servidor iniciado en el puerto ${ app.get("port") }`);
 })
