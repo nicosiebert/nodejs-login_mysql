@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const api = require("../../modules/db/auth");
-const bycript = require("bcryptjs");
 const session = require("express-session");
 
-let sess
 router.get("/", (req, res)=>{
     res.render("index.ejs",{req:req});
 })

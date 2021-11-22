@@ -1,20 +1,18 @@
 const express = require("express");
 const session = require("express-session");
 const morgan = require("morgan");
-const bcryptjs = require("bcryptjs");
 const app = express();
 
 require("dotenv").config();
 
 
 //setting
-let port = process.env.PORTHOST;
+app.set("port", process.env.PORT || process.env.PORTHOST);
 app.set("view engine", "ejs");
 
 //middlewares
 app.use(express.json());
 app.use(morgan("dev"));
-
 
 app.use(session({
     secret:"secret",
@@ -27,13 +25,8 @@ app.use(session({
 app.use(express.static("./public"));
 
 // routes
-app.use(require("./src/routes/routes"));
+app.use(require("./src/routes/routes.js"));
 //server
-app.listen(process.env.HOST || port, (req, res)=>{
-    if(process.env.HOST){
-        console.log(`servidor iniciado en el puerto ${process.env.HOST}`);
-    }else{
-
-    console.log(`servidor iniciado en el puerto ${port}`);
-    }
+app.listen(app.get("port"), e=>{
+    console.log(`servidor iniciado en el puerto ${ app.get("port") }`);
 })
